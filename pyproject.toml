@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "code-review-knowledge"
+version = "0.1.0"
+description = "Local deterministic knowledge base for code review agents"
+requires-python = ">=3.10"
+dependencies = [
+  "markdown-it-py>=4,<5",
+  "pydantic>=2,<3",
+  "PyYAML>=6,<7",
+  "tomli>=2,<3; python_version < '3.11'",
+  "typer>=0.15,<1",
+]
+
+[project.scripts]
+review-kb = "review_kb.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8,<9"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/review_kb"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+pythonpath = ["src"]
