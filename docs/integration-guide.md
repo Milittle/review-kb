@@ -2,6 +2,8 @@
 
 本文说明如何把本地规则知识库接入现有 Agent 检视流程。CLI 只负责确定性构建和查询；Agent 负责根据 MR 变更选择规则并执行检视。
 
+> **双实现**：本仓库有 Python 与 Rust 两个**字节兼容、可互换**的实现(见根 [README.md](../README.md) 与 [`rust/README.md`](../rust/README.md))。本文命令以 `uv run review-kb` 为例,Rust 二进制 `review-kb` 的参数与 JSON 协议完全相同,可直接替换。
+
 ## 1. 安装与数据库路径
 
 开发环境运行：

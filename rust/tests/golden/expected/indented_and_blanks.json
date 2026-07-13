@@ -1,0 +1,1 @@
+{"checklist_version":"1.0","content_hash":"sha256:b2cdd324866c81ca633b968d92a95b1fd01d19a9cdeb07f558278f9d8f14b730","global_description":"gd","rules":[{"content":"indented body","key":"INDENT","languages":["python"],"paths":[],"source_rule_hash":"sha256:236dd9daaad26e02bbe5998c728319f4ca76a3dc9a171a220303d90b4de98ce2","summary":"indented rule","tags":[]}],"schema_version":1}

@@ -1,0 +1,29 @@
+[package]
+name = "review-kb"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+description = "Local deterministic knowledge base for code review agents (Rust twin of the Python CLI)"
+
+[lib]
+name = "review_kb"
+path = "src/lib.rs"
+
+[[bin]]
+name = "review-kb"
+path = "src/main.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+clap = { version = "4", features = ["derive"] }
+serde_yml = "0.0.12"
+sha2 = "0.10"
+regex = "1"
+chrono = "0.4"
+toml = "0.8"
+tempfile = "3"
+rusqlite = { version = "0.37", features = ["bundled", "backup"] }
+
+[dev-dependencies]
+# (added in later phases: tempfile, etc.)

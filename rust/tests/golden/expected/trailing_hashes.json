@@ -1,0 +1,1 @@
+{"checklist_version":"1.0","content_hash":"sha256:683656a3fc1dd9c207ba83b3fbb00f97a2720f0c5320868d095b3226cbc52039","global_description":"gd","rules":[{"content":"body text","key":"KEY-ONE","languages":["python"],"paths":[],"source_rule_hash":"sha256:e222ae8f64e96a0af4539458d95bb6cce7ac786fc135993d7bdf1213de33e580","summary":"trailing hashes","tags":[]}],"schema_version":1}

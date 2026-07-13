@@ -1,0 +1,10 @@
+# Project-local cargo config. The global ~/.cargo/config.toml routes through
+# USTC, but pins USTC's *git* index, which is now defunct. USTC's *sparse*
+# index is alive, so override only the registry URL here. This is scoped to the
+# project (cargo reads it because we run cargo from rust/) and is reversible:
+# delete this file to fall back to the global config.
+[source.ustc]
+registry = "sparse+https://mirrors.ustc.edu.cn/crates.io-index/"
+
+[net]
+git-fetch-with-cli = true

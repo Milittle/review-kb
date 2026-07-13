@@ -1,0 +1,1 @@
+{"checklist_version":"1.0","content_hash":"sha256:0d10555ce04244d884d6066bf596a20dc5ba5c1093c57a62fcb203db53909a42","global_description":"gd","rules":[{"content":"tilde body","key":"TILDE","languages":["python"],"paths":[],"source_rule_hash":"sha256:986a2d769eddb176a686830ea57577c5cee0dc55744f0ef1581c99048f7c6013","summary":"tilde fence rule","tags":[]}],"schema_version":1}

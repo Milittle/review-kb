@@ -4,6 +4,24 @@
 
 CLI 不调用模型、不使用向量检索，也不访问 CodeHub API。CodeHub 项目 ID、项目名称和 checklist 路径由现有 MR 检视流程传入。
 
+## 运行时：Python 与 Rust（双实现，可互换）
+
+本仓库提供两个**字节兼容、可互换**的实现，调用方把 `review-kb` 从一个换成另一个无需改动任何参数或脚本：
+
+- **Python**：`src/review_kb/`，经 `uv` 运行(见第 2 节)。适合环境里已有 Python / `uv` 的场景。
+- **Rust**：`rust/`，单一二进制、SQLite 已静态编入、无 Python 运行时依赖。适合需要单一可执行文件或更冷启动快的执行机。构建与安装见 [`rust/README.md`](rust/README.md)。
+
+两者共享同一套契约：同一 SQLite 数据库文件(可互相读写)、同一 JSON 信封、同一退出码、同一三处 SHA-256 哈希、同一 checklist 格式。跨二进制一致性由自动化门禁覆盖，从仓库根执行：
+
+```bash
+make test       # Python pytest + Rust cargo test 全量
+make compat     # 跨二进制 stdout/退出码逐字节比对等一致性门禁
+```
+
+> **PATH 冲突**：两个实现的二进制**同名,都叫 `review-kb`**。若同时安装,实际命中哪个取决于 `PATH` 顺序(`which -a review-kb` 可查)。生产环境建议只保留其一,或在脚本里用绝对路径调用。两处仅影响诊断文本、不影响程序化契约的差异见 [`rust/README.md`](rust/README.md) 第 5 节。
+
+下文(第 1 节起)以 Python 版为例讲解命令用法;Rust 版参数与 JSON 协议完全相同。
+
 ## 1. 环境要求
 
 - Python 3.10 或更高版本
